@@ -8,7 +8,14 @@
     Consolas, monospace;
 }
 [data-rmd] pre {
-    font-family: Courier, "Courier New", monospace;
+    font-family: Source Code Pro, Menlo, Monaco, Consolas, monospace, monospace
+}
+
+body {
+    max-width: 700px;
+    box-sizing: content-box;
+    padding: 2em;
+    margin: 0 auto;
 }
 
 /*header, footer {*/
