@@ -1,25 +1,4 @@
 <footer>
-  <div class="wrapper">
-      <div class="footer-col footer-col-2">
-        <ul class="social-media-list">
-
-          <li><a href="mailto:{{ site.email }}">{{ site.email }}</a></li>
-
-          {% if site.github_username %}
-          <li>
-            <a href="https://www.github.com/{{ site.github_username }}">{{ site.github_username }}@github</a>
-          </li>
-          {% endif %}
-
-          {% if site.twitter_username %}
-          <li>
-            <a href="https://www.twitter.com/{{ site.twitter_username }}">{{ site.twitter_username }}@twitter</a>
-          </li>
-          {% endif %}
-          <li>
-            <a href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS</a>
-          </li>
-        </ul>
-      </div>
-  </div>
+  <hr/>
+  <a href="mailto:{{ site.email }}">{{ site.email }}</a>
 </footer>

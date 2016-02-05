@@ -3,18 +3,15 @@ layout: default
 title:  "Tomer Weller / Blob"
 ---
 
-<div class="home">
+<div>
 
-  <h1 class="page-heading">POSTS</h1>
+  <h3>Posts</h3>
 
-  <ul class="post-list">
+  <ul>
     {% for post in site.posts %}
       <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
+        <p></p>
+        <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a> ({{ post.date | date: "%b %-d, %Y" }})</p>
       </li>
     {% endfor %}
   </ul>
