@@ -1,23 +1,9 @@
-[data-rmd] ::before,
-[data-rmd] ::after {
-    color: rgba(255, 0, 0, .5);
-}
-
-[data-rmd] {
-    font-family: Menlo, Monaco, "DejaVu Sans Mono",
-    Consolas, monospace;
-}
-[data-rmd] pre {
-    font-family: Source Code Pro, Menlo, Monaco, Consolas, monospace, monospace
-}
-
 body {
+    font-family: Menlo, Monaco, "DejaVu Sans Mono", Consolas, monospace;
     max-width: 700px;
     box-sizing: content-box;
     padding: 2em;
     margin: 0 auto;
+    background-color: #F6F6F6;
+    color: #202020;
 }
-
-/*header, footer {*/
-    /*text-align: center;*/
-/*}*/
