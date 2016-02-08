@@ -8,10 +8,9 @@
 # Site settings
 title: Tomer Weller / Blob
 email: tomer.weller@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  an indeterminate mass or shape
+description: "an indeterminate mass or shape"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://yourdomain.com" # the base hostname & protocol for your site
+url: "http://blob.tomerweller.com" # the base hostname & protocol for your site
 twitter_username: tomerweller
 github_username:  tomerweller
 
