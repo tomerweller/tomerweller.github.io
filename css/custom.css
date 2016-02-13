@@ -1,9 +1,11 @@
 body {
-    font-family: Menlo, Monaco, "DejaVu Sans Mono", Consolas, monospace;
+    font-family: Source Code Pro, Menlo, Monaco, Consolas, monospace, monospace;
+    color: #202020;
+    background-color: #FCFCFC;
+    margin: 0 auto;
     max-width: 700px;
     box-sizing: content-box;
     padding: 2em;
-    margin: 0 auto;
-    background-color: #F6F6F6;
-    color: #202020;
+    line-height: 1.4;
+    text-align: justify;
 }
