@@ -2,7 +2,6 @@
 layout: post
 title:  "A Blog named Blob"
 date:   2016-02-10 23:59:59 -0500
-categories: jekyll update
 ---
 
 **Blog?** A couple of weeks ago, following the [death of Parse.com][parse_death], I wrote a [rant]({% post_url 2016-01-28-parse-is-dying-all-hail-the-benevolent-dictator %}) about the virtues of portability and how they are too often overlooked. Posting that rant on a system that inherently does not allow portability (facebook, medium, etc.) felt a bit wrong. So, following a New Year's resolution to better document my work, a blog seemed in order. 
