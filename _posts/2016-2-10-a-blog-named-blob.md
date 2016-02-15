@@ -17,7 +17,9 @@ date:   2016-02-10 23:59:59 -0500
 **Comments** are a bitch. They add dynamic content to an otherwise beautifully static website. The de-facto industry standard is disqus but using that means someone else owns your discussion. It also means user session data is shared and no anonymous comments are allowed. In comes **[isso][isso]** - an opensource, self hosted alternative to disqus. I love the idea of having sqlite as a datastore and, let's face it, the ammout of expected comments (~1 per year) does not justify a multi-connection database solution. I'm running isso on a VM in an undisclosed location in the world... 
 
 **Design** - I'm slowly developing a hatred for beautiful web pages. Everything on the web is just too God damn pretty these days. I decided to get rid of all of Jekyll's styling and start from scratch. I like fixed width fonts and I'm taking cues from [Florent Verschelde's][fvsch] [monospace theme][monospace_theme] on tumblr and [remarkdow][remarkdown] css library.
- [My css][my_css] file is currently 10 lines long but will probably grow when richer content is added. I'm also using a [solarized bright][solarized_css] css for code highlighting and isso's default css with minor modifications. 
+ [My css][my_css] file is currently 10 lines long but will probably grow when richer content is added. I'm also using a [solarized bright][solarized_css] css for code highlighting and isso's default css with minor modifications. <em>**UPDATE**: [Travis][travis] pointed out [motherfuckingwebsite.com][motherfuckingwebsite] which is spot on</em>.
+
+
 
 The code is available [here][here]. 
 
@@ -31,3 +33,5 @@ The code is available [here][here].
 [my_css]: https://github.com/tomerweller/tomerweller.github.io/blob/master/css/custom.css
 [here]: https://github.com/tomerweller/tomerweller.github.io
 [solarized_css]: https://gist.github.com/edwardhotchkiss/2005058
+[travis]: http://www.travisrich.com/
+[motherfuckingwebsite]: http://www.motherfuckingwebsite.com
