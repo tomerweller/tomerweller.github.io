@@ -252,7 +252,7 @@ That's it!
 
 I left out some of the glue code to keep this post relatively short. You can checkout the complete example [here][oogi-source]. Feel free to submit issues and pull requests if I missed anything.
 
-##### Huge thanks to Thariq Shihipar for helping out with the JS hacking!
+##### *Huge thanks to [Thariq](https://twitter.com/trq__) for helping out with the JS hacking!*
 
 [oogi-source]: http://www.github.com/tomerweller/oogi
 [chrome.webRequest]: https://developer.chrome.com/extensions/webRequest
