@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Intercepting Cookies in a Chrome extension"
-draft: true
 date:   2016-02-27 23:59:59 -0500
 ---
 
