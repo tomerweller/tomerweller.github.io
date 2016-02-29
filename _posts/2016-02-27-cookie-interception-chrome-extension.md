@@ -6,7 +6,7 @@ date:   2016-02-27 23:59:59 -0500
 
 Last week I built a Chrome extension that was supposed to solve privacy on the Web. It didn't - but that's a different post. 
 
-I did, however, found my self in need of intercepting all cookie read/writes in a Chrome extension. This proved to be interesting and non-trivial so here's a brain dump of the process - hopefully this helps someones somewhere. (and by someone, I'm looking at you, future self!) 
+I did, however, found my self in need of intercepting all cookie read/writes in a Chrome extension. This proved to be interesting and non-trivial so here's a brain dump of the process - hopefully this helps someone somewhere. (and by someone, I'm looking at you, future self!) 
 
 ### Intercepting cookies?
 Yup. Some potential use cases: 
