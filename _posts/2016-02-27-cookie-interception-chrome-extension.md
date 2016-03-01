@@ -6,7 +6,7 @@ date:   2016-02-27 23:59:59 -0500
 
 Last week I built a Chrome extension that was supposed to solve privacy on the Web. It didn't - but that's a different post. 
 
-I did, however, found my self in need of intercepting all cookie read/writes in a Chrome extension. This proved to be interesting and non-trivial so here's a brain dump of the process - hopefully this helps someone somewhere. (and by someone, I'm looking at you, future self!) 
+I did, however, find my self in need of intercepting all cookie read/writes in a Chrome extension. This proved to be interesting and non-trivial so here's a brain dump of the process - hopefully this helps someone somewhere. (and by someone, I'm looking at you, future self!) 
 
 ### Intercepting cookies?
 Yup. Some potential use cases: 
@@ -19,13 +19,13 @@ Yup. Some potential use cases:
 
 Generally speaking, an extension will intercept cookies either to save your privacy or to completely violate it. *With great power comes great responsibility*.
 
-### Isn't there a Cookie API for Chrome extensions?
-True. And it's a [fine API][chrome.cookies]. However, it does not allow real-time interception. Meaning, you can read and write cookies and even get notified when cookies change, but not manipulate them *WHILE* they are being read / written. 
+### Isn't there already a Cookie API for Chrome extensions?
+True. And it's a [fine API][chrome.cookies], yet, it does not allow real-time interception. Meaning, you can read and write cookies and even get notified when cookies change, but not manipulate them *WHILE* they are being read / written. 
  
 ### OOGI
 For the sake of this post I will build **OOGI** (*shorthand for Oogifletset - the Hebrew translation of "The Cookie Monster"*) a simple extension that statically namespaces all cookies with the prefix **`oogi$`**. When cookies are set they will be prefixed before being written into the cookie store, and when being queried the prefix will be removed - making it completely transparent to remote servers. 
 
-The following assumes you have basic knowledge in building a chrome extension and understand what a cookie is. The full source code is available [here][oogi-source].
+The following assumes you have basic knowledge in building a chrome extension and understand what [a cookie is][wiki_cookie]. The full source code is available [here][oogi-source].
 
 There are two ways to get and set cookies. I'll tackle each one of them separately:  
 
@@ -166,7 +166,7 @@ My amazing setter
 
 {% endhighlight %}
 
-Great success! This might suffice if our extension completely ignores Chrome's internal cookie store. However, if access to the cookie store is still required, which is case for Oogi, we need to save a reference to the original getter and setter functions of document.cookie.
+Great success! This might suffice if our extension completely ignores Chrome's internal cookie store. But, if access to the cookie store is still required, which is case for Oogi, we need to save a reference to the original getter and setter functions of document.cookie.
 
 Theoretically, the [Object.getOwnPropertyDescriptor()][getOwnPropertyDescriptor] function should help with that. 
 
@@ -193,7 +193,7 @@ Bingo!
 
 However, all of this this experimentation was done in the Chrome dev tools console. How do we port this to our extension?
 
-Running custom javascript code in every webpage is done using [content scripts][chrome.content]. However, the document object in a content script is actually a replica. Modifying it is not visible to the rest of the Javascript code in the page. Luckily, this is a [well discussed][so.injectjs] issue and the simplest solutions is to create a custom script element and inject it into every page.
+Running custom javascript code in every webpage is done using [content scripts][chrome.content]. However, the document object in a content script is actually a replica. Modifying it is not visible to the rest of the Javascript code in the page. Luckily, this is a [well discussed][so.injectjs] issue and the most simple solution is to create a custom script element and inject it into every page.
 
 Declaring our content script in  `manifest.json`:
 
@@ -264,3 +264,4 @@ I left out some of the glue code to keep this post relatively short. You can che
 [lookupGetter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupGetter__
 [lookupSetter]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/__lookupSetter__
 [so.injectjs]: http://stackoverflow.com/questions/9515704/building-a-chrome-extension-inject-code-in-a-page-using-a-content-script
+[wiki_cookie]: https://en.wikipedia.org/wiki/HTTP_cookie
