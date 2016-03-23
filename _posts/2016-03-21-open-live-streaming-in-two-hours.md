@@ -1,23 +1,25 @@
 ---
 layout: post
 title:  "Setting up an open source live streaming solution in two hours"
-draft: true
 date:   2016-03-21 23:59:59 -0500
 --- 
 
-Last Sunday the Media Lab hosted a Public Dialogue on DRM and the future of the Web. Amongst the speakers was [Richard Stallman][stallman] (aka **RMS**), founder of the Free Software Foundation.  Although there was a lot of interest in the event from outside of the media lab, it couldn’t be streamed with MIT’s setup even though it was being filmed. MIT's video streaming service is proprietary and Stallman will not use, or even take part in using, software that is not *completely** free.
+Last Sunday the Media Lab hosted a Public Dialogue on DRM and the future of the Web. Amongst the speakers was [Richard Stallman][stallman] (aka **RMS**), founder of the Free Software Foundation.  Although there was a lot of interest in the event from outside of the media lab, it couldn’t be streamed with MIT’s setup even though it was being filmed. MIT's video streaming service is proprietary and Stallman will not use, or even take part in using, software that is not *completely* free.
  
-![The Panel](/assets/the-panel.jpg "this is a title")
+![The Panel](/assets/open-streaming/the-panel.jpg "this is a title")
 <small>Richard Stallman, Danny O'Brien, Joi Ito, and Harry Halpin. Photo: Jon Christian</small>
  
-Earlier that day, during a lunch hosted by [Joi Ito][joi], Tal Achituv and myself toyed with the idea of deploying a WebRTC based solution that is open enough for even RMS to approve. After, after doing some research, it seemed that there are indeed open WebRTC options for broadcasting. Now, a couple of hours before the panel, we decided to go for it. 
+Earlier that day, during a lunch hosted by [Joi Ito][joi], Tal Achituv and myself toyed with the idea of deploying a WebRTC based solution that is open enough for even RMS to approve. After doing some research, it seemed that there are indeed open WebRTC options for broadcasting. Now, a couple of hours before the panel, we decided to go for it. 
 
 This resulted in two hours of hectic coding, setup and equipment search.
 
 ### The Setup: 
 
-![The Setup](/assets/the-setup.jpg)
+![The Setup](/assets/open-streaming/the-setup.jpg)
 <small>Photo: Tal Achituv</small>
+
+![Block Diagram](/assets/open-streaming/block-diagram.png)
+<small>Making this diagram took more time than building a free streaming solution<small>
 
 #### Media Server
 [Kurento][kurento] (LGPL-2.1) is an open source media server. It implements the WebRTC spec and uses [GStreamer][gstreamer] under the hood for any multimedia processing. In this case we used Kurento as a broadcasting server: it received one WebRTC AV stream from a presenter and retransmitted it via multiple WebRTC streams to viewers. 
@@ -33,12 +35,10 @@ Notes:
 #### Signaling Server
 
 The signaling server is responsible for serving static assets and connecting the clients with the Media server via WebSockets. Our Node.js server was based on Kurento's [one-to-many video call tutorial][one2manytutorial] and ran on my laptop.
-When I say *based* I mean completely *copied*. The only change we made was to separate the presenter page from the viewing page and completely remove everything besides the video container on the viewer page. 
+When I say *based* I mean completely *copied*. The only change we made was to separate the presenter page from the viewing page and completely remove everything besides the video container on the viewer page. [here's the code.](https://github.com/tomerweller/ml-open-stream)
 
-[here's the code]()
-
-![Viewer](/assets/view-screenshot.jpg)
-![Viewer](/assets/view-screenshot2.jpg)
+![Viewer](/assets/open-streaming/view-screenshot.jpg)
+![Viewer](/assets/open-streaming/view-screenshot2.jpg)
 <small>Screenshots of the live viewing page. Notice the change in the favicon.</small>
 
 Notes: 
@@ -46,7 +46,7 @@ Notes:
 - The fun thing about serving files directly from your computer is that you can hot swap them. We were tweaking the viewing experience during the stream, including changing the favicon and various css fixes.
 - To avoid exposing my personal laptop (signaling was running directly on my computer, not on a VM) we used the [ngrok][ngrok] tunneling service.
 
-![Terminal](/assets/terminal.png)
+![Terminal](/assets/open-streaming/terminal.png)
 <small>left: ngrok with 5 open connection. right: printout from the signaling server.</small>  
 
 #### Presenter Stream
