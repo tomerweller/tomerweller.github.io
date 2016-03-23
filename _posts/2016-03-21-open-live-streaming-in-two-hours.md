@@ -5,12 +5,12 @@ draft: true
 date:   2016-03-21 23:59:59 -0500
 --- 
 
-Last Sunday the Media Lab hosted a Public Dialogue on DRM and the future of the Web. Amongst the speakers was [Richard Stallman][stallman] (aka **RMS**), founder of the Free Software Foundation. Although there was a lot of interest in the event outside of the lab and although it was being filmed, it could not have been streamed. MITs video streaming service is proprietary and Stallman will not use, or take part in using, software that is not completely free.
+Last Sunday the Media Lab hosted a Public Dialogue on DRM and the future of the Web. Amongst the speakers was [Richard Stallman][stallman] (aka **RMS**), founder of the Free Software Foundation.  Although there was a lot of interest in the event from outside of the media lab, it couldn’t be streamed with MIT’s setup even though it was being filmed. MIT's video streaming service is proprietary and Stallman will not use, or even take part in using, software that is not *completely** free.
  
 ![The Panel](/assets/the-panel.jpg "this is a title")
 <small>Richard Stallman, Danny O'Brien, Joi Ito, and Harry Halpin. Photo: Jon Christian</small>
  
-Earlier that day, during a lunch hosted by [Joi Ito][joi], Tal Achituv and myself toyed with the idea of deploying a WebRTC based solution that is open enough for RMS to approve. Later, after doing some research, it seemed that there are indeed open WebRTC options for broadcasting and a couple of hours before the panel we decided to go for it. 
+Earlier that day, during a lunch hosted by [Joi Ito][joi], Tal Achituv and myself toyed with the idea of deploying a WebRTC based solution that is open enough for even RMS to approve. After, after doing some research, it seemed that there are indeed open WebRTC options for broadcasting. Now, a couple of hours before the panel, we decided to go for it. 
 
 This resulted in two hours of hectic coding, setup and equipment search.
 
@@ -49,21 +49,21 @@ Notes:
 ![Terminal](/assets/terminal.png)
 <small>left: ngrok with 5 open connection. right: printout from the signaling server.</small>  
 
-### Presenter Stream
+#### Presenter Stream
 [Tal][tal] managed to find a cheap video capture card in the lab (something [like this][video_capture]) and a laptop that would actually work with it. We used Firefox to connect to our presenter endpoint which handled the WebRTC handshake with the Media server.
 
 Notes:
 
-- Halfway through the stream I realized that there was no audio feed connected to the capture card and that we're actually using the laptop's microphone. Suprisingly, the sound was fairly good.
+- Halfway through the stream I realized that there was no audio feed connected to the capture card and that we're actually using the laptop's microphone. Surprisingly, the sound was fairly good.
 - Of course, it's far from being a secure solution - anyone could connect to that endpoint and serve as a presenter.
 
 
-#### Results
+### Results
 We had a peak of 37 concurrent streams and averaged around 12. Due to time constraints and because the panel was actually quite interesting we didn't have any continuous monitoring or collected information about load but it sure felt like we could handle a lot more. The machine was responsive (even the VM) throughout the session and I'm still amazed that a tiny VM with no optimizations handled it. KUDOS to [Kurento][kurento].
 
 ### Some take aways
 
-1. **When you wait for the last possible minute to do something, it will take exactly one minute.** ([Parkinson's Law][parkinson]). If we had decided to do this a week before than it would have taken a week. Of course, the client would be more polished and performance would be tested. But who cares? Sometimes good enough is good enough.
+1. **When you wait until the last possible minute to do something, it will take exactly one minute.** ([Parkinson's Law][parkinson]). If we had decided to do this a week before than it would have taken a week. Of course, the client would be more polished and performance would be tested. But who cares? Sometimes good enough is good enough.
 2. **There's a tool for that.** I always thought that setting up live streaming is a lengthy, non-trivial task. We live in an amazing time where the tools are just there and the only thing that limits us is our perspective. 
 3. **You are a server.** In the early days of the internet it was clear that all nodes in the network are created equal. Anyone can consume services and anyone can provide services, whether it's a Web page or an IRC node. The differentiation between a server and a client is a networking protocol technicality. There is no reason why a node can't serve both as a client and a server. However, with massive data centers, Cloud computing and NAT, we've adopted a model of complete separation, our personal machines are clients and those behind some abstract cloud are servers. Serving anything from your machine, not just for debugging purposes, is part of the spirit of the internet. We should build tools that allow it (thanks [ngrok][ngrok]!) and services that take advantage of it. 
 
