@@ -38,6 +38,7 @@ When I say *based* I mean completely *copied*. The only change we made was to se
 [here's the code]()
 
 ![Viewer](/assets/ostream_view.png)
+<small>Screenshot of the live viewing page featuring Joi Ito. Notice the Kurento favicon.</small>
 
 Notes: 
 
