@@ -17,3 +17,13 @@ permalink: /:title
 path: /
 # Build settings
 markdown: kramdown
+
+owner:
+  name:           Tomer Weller
+  avatar:         /assets/avatar.jpg
+  email:          tomer.weller@gmail.com
+  # Social networking links used in footer. Update and remove as you like.
+  twitter: tomerweller
+  facebook: tomerweller
+  github: tomerweller
+

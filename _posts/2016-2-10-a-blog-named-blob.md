@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "A Blog named Blob"
+description: Why and how is there a Blog named Blob
 date:   2016-02-10 23:59:59 -0500
 ---
 

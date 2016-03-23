@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Parse is dying - all hail the benevolent dictator"
+description: why Portability is a major design consideration
 date:   2016-01-28 00:00 -0500
 ---
 
