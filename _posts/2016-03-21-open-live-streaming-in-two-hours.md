@@ -2,6 +2,7 @@
 layout: post
 title:  "Setting up an open source live streaming solution in two hours"
 description: Going through an extremely quick setup of a free video streaming solution
+draft: true
 image: /assets/open-streaming/view-screenshot2.jpg
 date:   2016-03-21 23:59:59 -0500
 --- 
@@ -24,7 +25,7 @@ This resulted in two hours of hectic coding, setup and equipment search.
 <small>Making this diagram took more time than building a free streaming solution<small>
 
 #### Media Server
-[Kurento][kurento] (LGPL-2.1) is an open source media server. It implements the WebRTC spec and uses [GStreamer][gstreamer] under the hood for any multimedia processing. In this case we used Kurento as a broadcasting server: it received one WebRTC AV stream from a presenter and retransmitted it via multiple WebRTC streams to viewers. 
+[Kurento][kurento] (LGPL-2.1) is an open source media server. It implements the WebRTC spec and uses [GStreamer][gstreamer] under the hood for any multimedia processing. In this case we used Kurento as a broadcasting server: it received one WebRTC AV stream from a presenter (the video capturing laptop) and retransmitted it via multiple WebRTC streams to viewers. 
 
 We ran Kurento on a Linux VM on my laptop. The intention was to test on a VM and then deploy to some cloud service. However, due to lack of time, the debug setup became the production one. 
 
@@ -51,8 +52,8 @@ Notes:
 ![Terminal](/assets/open-streaming/terminal.png)
 <small>left: ngrok with 5 open connection. right: printout from the signaling server.</small>  
 
-#### Presenter Stream
-[Tal][tal] managed to find a cheap video capture card in the lab (something [like this][video_capture]) and a laptop that would actually work with it. We used Firefox to connect to our presenter endpoint which handled the WebRTC handshake with the Media server.
+#### Video Capturing
+[Tal][tal] managed to find a cheap video capture card in the lab (something [like this][video_capture]) and a laptop that would actually work with it (ours didn't). We used Firefox to connect to our presenter endpoint which handled the WebRTC handshake with the Media server.
 
 Notes:
 
