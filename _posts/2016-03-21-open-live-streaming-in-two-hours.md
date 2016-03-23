@@ -37,7 +37,7 @@ When I say *based* I mean completely *copied*. The only change we made was to se
 
 [here's the code]()
 
-![Viewer](/assets/ostream_view.png)
+![Viewer](/assets/view-screenshot.jpg)
 <small>Screenshot of the live viewing page featuring Joi Ito. Notice the Kurento favicon.</small>
 
 Notes: 
@@ -49,7 +49,7 @@ Notes:
 <small>left: ngrok with 5 open connection. right: printout from the signaling server.</small>  
 
 ### Presenter Stream
-Tal managed to find a cheap video capture card in the lab (something [like this][video_capture]) and a laptop that would actually work with it. We used Firefox to connect to our presenter endpoint which handled the WebRTC handshake with the Media server.
+[Tal][tal] managed to find a cheap video capture card in the lab (something [like this][video_capture]) and a laptop that would actually work with it. We used Firefox to connect to our presenter endpoint which handled the WebRTC handshake with the Media server.
 
 Notes:
 
