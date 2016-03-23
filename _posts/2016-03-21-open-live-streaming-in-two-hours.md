@@ -7,8 +7,6 @@ image: /assets/open-streaming/view-screenshot2.jpg
 date:   2016-03-21 23:59:59 -0500
 --- 
 
-
-
 Last Sunday the Media Lab hosted a Public Dialogue on DRM and the future of the Web. Amongst the speakers was [Richard Stallman][stallman] (aka **RMS**), founder of the Free Software Foundation.  Although there was a lot of interest in the event from outside of the media lab, it couldn’t be streamed with MIT’s setup even though it was being filmed. MIT's video streaming service is proprietary and Stallman will not use, or even take part in using, software that is not *completely* free.
  
 ![The Panel](/assets/open-streaming/the-panel.jpg "this is a title")
