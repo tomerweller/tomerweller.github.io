@@ -2,7 +2,6 @@
 layout: post
 title:  "Setting up a free live streaming solution in two hours"
 description: Going through an extremely quick setup of a free video streaming solution
-draft: true
 image: /assets/open-streaming/view-screenshot2.jpg
 date:   2016-03-21 23:59:59 -0500
 --- 
