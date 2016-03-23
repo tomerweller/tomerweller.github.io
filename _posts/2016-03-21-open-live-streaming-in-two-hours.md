@@ -6,6 +6,8 @@ image: /assets/open-streaming/view-screenshot2.jpg
 date:   2016-03-21 23:59:59 -0500
 --- 
 
+###### Note: a previous version of this post had some licensing terminology issues. This post discusses Free software. 
+
 Last Sunday the Media Lab hosted a Public Dialogue on DRM and the future of the Web. Amongst the speakers was [Richard Stallman][stallman] (aka **RMS**), founder of the Free Software Foundation.  Although there was a lot of interest in the event from outside of the media lab, it couldn’t be streamed with MIT’s setup even though it was being filmed. MIT's video streaming service is proprietary and Stallman will not use, or even take part in using, software that is not *completely* free.
  
 ![The Panel](/assets/open-streaming/the-panel.jpg "this is a title")
@@ -24,7 +26,7 @@ This resulted in two hours of hectic coding, setup and equipment search.
 <small>Making this diagram took more time than building a free streaming solution<small>
 
 #### Media Server
-[Kurento][kurento] (LGPL-2.1) is an free media server. It implements the WebRTC spec and uses [GStreamer][gstreamer] under the hood for any multimedia processing. In this case we used Kurento as a broadcasting server: it received one WebRTC AV stream from a presenter (the video capturing laptop) and retransmitted it via multiple WebRTC streams to viewers. 
+[Kurento][kurento] (LGPL-2.1) is a free media server. It implements the WebRTC spec and uses [GStreamer][gstreamer] under the hood for any multimedia processing. In this case we used Kurento as a broadcasting server: it received one WebRTC AV stream from a presenter (the video capturing laptop) and retransmitted it via multiple WebRTC streams to viewers. 
 
 We ran Kurento on a Linux VM on my laptop. The intention was to test on a VM and then deploy to some cloud service. However, due to lack of time, the debug setup became the production one. 
 
