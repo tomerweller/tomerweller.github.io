@@ -38,7 +38,8 @@ When I say *based* I mean completely *copied*. The only change we made was to se
 [here's the code]()
 
 ![Viewer](/assets/view-screenshot.jpg)
-<small>Screenshot of the live viewing page featuring Joi Ito. Notice the Kurento favicon.</small>
+![Viewer](/assets/view-screenshot2.jpg)
+<small>Screenshots of the live viewing page. Notice the change in the favicon.</small>
 
 Notes: 
 
