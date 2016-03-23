@@ -14,6 +14,6 @@ url: "http://blob.tomerweller.com" # the base hostname & protocol for your site
 twitter_username: tomerweller
 github_username:  tomerweller
 permalink: /:title
-
+path: /
 # Build settings
 markdown: kramdown
