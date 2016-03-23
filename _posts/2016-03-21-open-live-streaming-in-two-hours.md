@@ -65,11 +65,11 @@ We had a peak of 37 concurrent streams and averaged around 12. Due to time const
 
 ### Some take aways
 
-1. **When you wait until the last possible minute to do something, it will take exactly one minute.** ([Parkinson's Law][parkinson]). If we had decided to do this a week before than it would have taken a week. Of course, the client would be more polished and performance would be tested. But who cares? Sometimes good enough is good enough.
+1. **When you wait until the last possible minute to do something, it will take exactly one minute.** ([Parkinson's Law][parkinson]). If we had decided to do this a week before then it would have taken a week. Of course, the client would be more polished and performance would be tested. But who cares? Sometimes good enough is good enough.
 2. **There's a tool for that.** I always thought that setting up live streaming is a lengthy, non-trivial task. We live in an amazing time where the tools are just there and the only thing that limits us is our perspective. 
 3. **You are a server.** In the early days of the internet it was clear that all nodes in the network are created equal. Anyone can consume services and anyone can provide services, whether it's a Web page or an IRC node. The differentiation between a server and a client is a networking protocol technicality. There is no reason why a node can't serve both as a client and a server. However, with massive data centers, Cloud computing and NAT, we've adopted a model of complete separation, our personal machines are clients and those behind some abstract cloud are servers. Serving anything from your machine, not just for debugging purposes, is part of the spirit of the internet. We should build tools that allow it (thanks [ngrok][ngrok]!) and services that take advantage of it. 
 
-Thank you [Tal Achituv](tal) for reminding me all of the above.
+Thank you [Tal Achituv][tal] for reminding me all of the above.
 
 [tal]: https://twitter.com/achituv
 [kurento]: http://www.kurento.org/
