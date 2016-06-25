@@ -15,7 +15,7 @@ Any Javascript developer using a modern build tool can easily test and incorpora
 
 Moving to Clojurescript and Reagent has been amazing in many ways but I just couldn't wrap my head around a comparable import flow.
 
-The flow I will describe below employs NPM as a dependency manager and Webpack as a build tool. The build artifact is added as an external Javascript dependency to an otherwise (pretty) standard Leinnnigen build process. 
+The workflow I will describe employs NPM as a dependency manager and Webpack as a build tool. The build artifact is added as an external Javascript dependency to an otherwise (pretty) standard Leinnnigen build process. 
 
 This solution does not use Cljsjs in anyway.  
 
@@ -28,7 +28,7 @@ This solution does not use Cljsjs in anyway.
 
 ### Zefstyle
 
-In this example we'll start with a simple frontend-only Reagant app and eventually add a [react-player][react-player] component to it. Let's call this project **Zefstyle**. You can also skip this guide altogether and just jump to the finished result [here][zefstyle-github]. 
+In this example we'll start with a simple frontend-only Reagant app and setup a workflow that will allow us to add a [react-player][react-player] component to it. Let's call this project **Zefstyle**. You can also skip this altogether and just jump to the finished result [here][zefstyle-github]. 
 
 Starting with a template: 
 
@@ -219,8 +219,8 @@ To bring in new components we just need to declare them in `package.json`, `requ
 Let me know if this was helpful or complete nonsense.
  
 ### Thanks to: 
-- [Thariq Shihipar][thariq] for suggesting this approach although he condemns the use of anything other than Javascript.
-- [/r/clojurescript][clojurescript-reddit], [Clojurians on Slack][clojurians] and especially @sbmitchell for finding some of my dumb mistakes.  
+- [Thariq Shihipar][thariq] for suggesting this approach although condemning the use of anything other than Javascript and React.
+- [/r/clojurescript][clojurescript-reddit], [Clojurians on Slack][clojurians] and especially @sbmitchell for helping me troubleshoot.  
 
 [zefstyle-github]:https://github.com/tomerweller/zefstyle
 [react-player]:https://www.npmjs.com/package/react-player
