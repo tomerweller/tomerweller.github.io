@@ -8,8 +8,6 @@ date:   2016-06-20 23:59:59 -0500
 
 This post describes, step by step, how to setup a workflow for importing [React][React] components from [NPM][npm], using [Webpack][webpack], and incorporate them in your [Reagent][reagent] views.
 
-##### From here on I will assume you are familiar, to some extent, with the technologies mentioned above. 
-
 ### Motivation
 Any Javascript developer using a modern build tool can easily test and incorporate React components from 3rd party developers in their app. It's usually just a matter of declaring dependencies, building and importing.
 
