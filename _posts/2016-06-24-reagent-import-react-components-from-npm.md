@@ -2,8 +2,8 @@
 layout: post
 title:  "Clojurescript/Reagent : importing React components from NPM"
 description: How to import a React components from npm, via webpack, to a Clojurescript/Reagent app.
-draft: true
-date:   2016-06-20 23:59:59 -0500
+draft: false
+date:   2016-06-24 23:59:59 -0500
 --- 
 
 This post describes, step by step, how to setup a workflow for importing [React][React] components from [NPM][npm], using [Webpack][webpack], and incorporate them in your [Reagent][reagent] views.
@@ -214,7 +214,7 @@ To bring in new components we just need to declare them in `package.json`, `requ
 1. JS dependencies are not processed by the Closure compiler so they do not get optimized at all. 
 2. Setting up this process is not trivial. However, it only needs to be done once and from then on it's a smooth sail. Also, automating the process or part of it sounds like a feasible task as part of a lein plugin. I'll look into that when some time frees up. 
 
-Let me know if this was helpful or complete nonsense.
+Let me know if this was helpful, requires some fixups or if it's complete rubbish.
  
 ### Thanks to: 
 - [Thariq Shihipar][thariq] for suggesting this approach although condemning the use of anything other than Javascript and React.
