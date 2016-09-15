@@ -195,9 +195,10 @@ in `src/zefstyle/core.cljs` let's change our `home-page` function to be:
 
 {% highlight clojure %}
 (defn home-page []
-  [:div
-   [:h2 "Zef Style"]
-   [:> react-player {:url "https://youtu.be/uMK0prafzw0"}]])
+  (let [react-player (aget js/window "deps" "react-player")]
+    [:div
+     [:h2 "Zef Style"]
+     [:> react-player {:url "https://youtu.be/uMK0prafzw0"}]]))
 {% endhighlight %}
 
 Notice the special `:>` syntax for using pure React components.
