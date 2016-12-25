@@ -18,3 +18,7 @@ small {
     font-size: x-small;
     font-weight: bold;
 }
+
+table {
+    background-color: aliceblue;
+}
