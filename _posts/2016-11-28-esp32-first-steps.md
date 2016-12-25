@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "ESP32 - first steps"
-description: ESP32 - Basic setup and programming
+description: ESP32 - basic setup, programming and benchmarks
 draft: true
 date:   2016-11-28 23:59:59 -0500
 --- 
@@ -25,7 +25,7 @@ This post describes my first steps with ESP32. It was originally written as prep
  * [More Resources](#more-resources)
 
 
-###Intro
+### Intro
 
 ESP32, successor to the beloved ESP8266, is system on a chip (SoC) that can do (almost) anything:
 
@@ -39,7 +39,7 @@ ESP32, successor to the beloved ESP8266, is system on a chip (SoC) that can do (
 
 Espressif, the manufacturer, have been kind enough to send some units of their new ESP32 modules for evaluation. (huge thanks to John Lee [@EspressifSystem][espressif-twitter]) This posts explores basic connectivity, different ways to program it and basic benchmarking.
 
-###Setup
+### Setup
 
 ####Equipment Used
 
