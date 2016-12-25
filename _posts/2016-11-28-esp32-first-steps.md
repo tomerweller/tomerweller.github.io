@@ -41,7 +41,7 @@ Espressif, the manufacturer, have been kind enough to send some units of their n
 
 ### Setup
 
-####Equipment Used
+#### Equipment Used
 
 - [**ESP32 WROOM32**][todo] module. This is Espressif's own ESP32 module. It's safe to assume that we'll see ESP32 used in modules from 3rd party manufacturers in the near future (AI was the lead module manufacturer for the ESP8266).
 - **ESP32 Breakout** board. Espressif provided us with simple breakout boards that expose all I/O pins and physical buttons for RESET and BOOT MODE. There are other boards out there and also designs so you can [mill your own][esp32-eagle].
@@ -50,7 +50,7 @@ Espressif, the manufacturer, have been kind enough to send some units of their n
 
 *Note: soldering the module to the breakout board proved non-trivial, the ground plane is very large so a high wattage soldering iron is recommended for soldering the ground pads.*
 
-####Basic Connectivity
+#### Basic Connectivity
 
 ![esp32-pinout](/assets/esp32/esp32-pinout.png)
 
@@ -62,7 +62,7 @@ Espressif, the manufacturer, have been kind enough to send some units of their n
 
 ![esp32-pinout](/assets/esp32/esp32-basic-connectivity.png)
 
-####Sanity Check
+#### Sanity Check
 
 1. Open a terminal emulator on the FTDI port with a BAUD rate of 115200
 2. Hit the RESET button
@@ -96,20 +96,20 @@ station: 80:e6:50:27:b6:62 join, AID = 1, g, 20
 I couldn't find any other interesting things in the provided firmware.
 In case you were wondering, like me, whether ESP8266's [AT command-set][at-commandset] works in this prompt, the answer is no. It's not very clear what commands do work here.
 
-###Programming
+### Programming
 There are currently two methods to program the ESP32: the ESP-IDF and the ESP32 arduino Core. 
 
-####FreeRTOS
+#### FreeRTOS
 
 Before programming this chip it's crucial to understand that, unlike other embedded systems, the ESP32 comes with a light operating system - FreeRTOS. The following methods to program this chip don't replace the FreeRTOS firmware, but rather deploy applications for it to run. I imagine that in the near future we'll see other operating systems or no-os approaches for reprogramming these chips.  
 
-####ESP - IDF
+#### ESP - IDF
 
 [Espressif IoT Development Framework][esp32-idf] is a set of open source libraries and tools to facilitate deployment of apps to ESP32s FreeRTOS.
 
 [Code Example : HTTP GET request using the ESP IDF](https://github.com/tomerweller/esp32-rtos-webclient)
 
-####ESP32 ARDUINO CORE
+#### ESP32 ARDUINO CORE
 
 Espressif have also been hard at work to get the maker community happy and makers love Arduino. The [ESP32 arduino core][esp32-arduino-core] integrates ESP-IDF deeply into the arduino tools. This includes providing a WiFi API that is almost 100% compatible with existing wifi shields for arduino.
 
@@ -117,7 +117,7 @@ Espressif have also been hard at work to get the maker community happy and maker
 
 *Note: currently, to take advantage of the concurrency capabilities - IDF is the way to go.*
 
-###Ring Oscillator benchmark
+### Ring Oscillator benchmark
 Ring oscillator tests measure the minimal amount of time it takes for a signal to get out of a chip and back through peripherals. 
 
 In practice, it means shorting two pins with a jumper, defining one as input and the other as output, and then writing and reading as fast as possible. The result is recorded with an oscilloscope connected to the shortened pins and ground.
@@ -133,7 +133,7 @@ Here, I measure both programming methods mentioned earlier:
 
 *Note: These tests only occupy one core. The second core is free to perform other tasks, such as neworking. [Example](https://github.com/tomerweller/esp32-rtos-webclient/tree/with-ring-oscillator).*
 
-###More Resources
+### More Resources
 - [ESP32 Data Sheet][esp32-datasheet]
 - [ESP-WROOM32 Data Sheet][esp32-wroom32-datasheet]
 - [ESP32 official forum][esp32-forums]
