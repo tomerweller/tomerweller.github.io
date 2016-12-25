@@ -12,8 +12,18 @@ This post describes my first steps with ESP32. It was originally written as prep
 
 **Contents:** 
 
-* TOC
-{:toc}
+ * [Intro](#intro)
+ * [Setup](#setup)
+    * [Equipment Used](#equipment-used)
+    * [Basic Connectivity](#basic-connectivity)
+    * [Sanity Check](#sanity-check)
+ * [Programming](#programming)
+    * [FreeRTOS](#freertos)
+    * [ESP - IDF](#esp---idf)
+    * [ESP32 ARDUINO CORE](#esp32-arduino-core)
+ * [Ring Oscillator benchmark](#ring-oscillator-benchmark)
+ * [More Resources](#more-resources)
+
 
 ###Intro
 
