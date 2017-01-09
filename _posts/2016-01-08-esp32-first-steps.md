@@ -101,7 +101,7 @@ In case you were wondering, like me, whether ESP8266's [AT command-set][at-comma
 
 #### FreeRTOS
 
-Before programming this chip it's crucial to understand that, unlike other embedded systems, the ESP32 comes with a light operating system - FreeRTOS. The following methods to program this chip don't replace the FreeRTOS firmware, but rather deploy applications for it to run. I imagine that in the near future we'll see other operating systems or no-os approaches for reprogramming these chips.
+Before programming this chip it's crucial to understand that, unlike other embedded systems, the ESP32 comes with a light operating system - [FreeRTOS][freertos]. The following methods to program this chip don't replace the FreeRTOS firmware, but rather deploy applications for it to run. I imagine that in the near future we'll see other operating systems or no-os approaches for reprogramming these chips.
 
 There are currently two methods to program the ESP32: the ESP-IDF and the ESP32 arduino Core.
 
@@ -142,11 +142,10 @@ Here, I measure both programming methods mentioned earlier:
 - [ESP32 Getting started (hackaday)][esp32-getting-started-hackaday]
 
 ### Thanks:
-- [John Lee][espressif-twitter] and espressif for providing us with the boards.
+- [John Lee][espressif-twitter] and espressif for providing the hardware.
 - [Jonathan Bobrow][jb] for feedback on this post.
 
 
-[todo]:http://www.todo.com
 [esp32-overview]:https://espressif.com/en/products/hardware/esp32/overview
 [fabclass]:http://fab.cba.mit.edu/classes/863.16/
 [espressif-twitter]:https://twitter.com/EspressifSystem
@@ -162,3 +161,4 @@ Here, I measure both programming methods mentioned earlier:
 [core-ro]:https://gist.github.com/tomerweller/e50403bb18dcb6932d54e8f11edf0734
 [rtos-ro]:https://gist.github.com/tomerweller/7f9f202858cb064c84722c72f6c20aee
 [jb]:http://jonathanbobrow.com/
+[freertos]:http://www.freertos.org/
