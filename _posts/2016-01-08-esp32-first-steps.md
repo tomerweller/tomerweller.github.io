@@ -44,7 +44,7 @@ Espressif, the manufacturer, have been kind enough to send some units of their n
 
 #### Equipment Used
 
-- [**ESP32 WROOM32**][todo] module. This is Espressif's own ESP32 module. It's safe to assume that we'll see ESP32 used in modules from 3rd party manufacturers in the near future (AI was the lead module manufacturer for the ESP8266).
+- [**ESP32 WROOM32**][wroom32] module. This is Espressif's own ESP32 module. It's safe to assume that we'll see ESP32 used in modules from 3rd party manufacturers in the near future (AI was the lead module manufacturer for the ESP8266).
 - **ESP32 Breakout** board. Espressif provided us with [simple breakout boards](/assets/esp32/esp32-breakout.png) that expose all I/O pins and physical buttons for RESET and BOOT MODE.
 There are other boards available to order as well as designs to [mill your own][esp32-eagle].
 - **FTDI Cable**
@@ -165,3 +165,4 @@ Here, I measure both programming methods mentioned earlier:
 [jb]:http://jonathanbobrow.com/
 [freertos]:http://www.freertos.org/
 [ta]:https://twitter.com/achituv
+[wroom32]:https://espressif.com/en/producttype/esp-wroom-32
