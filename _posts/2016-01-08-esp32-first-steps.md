@@ -144,6 +144,7 @@ Here, I measure both programming methods mentioned earlier:
 
 ### Thanks:
 - [John Lee][espressif-twitter] and espressif for providing the hardware.
+- [Tal Achituv][ta] for help with soldering and the oscilloscope.
 - [Jonathan Bobrow][jb] for feedback on this post.
 
 
@@ -163,3 +164,4 @@ Here, I measure both programming methods mentioned earlier:
 [rtos-ro]:https://gist.github.com/tomerweller/7f9f202858cb064c84722c72f6c20aee
 [jb]:http://jonathanbobrow.com/
 [freertos]:http://www.freertos.org/
+[ta]:https://twitter.com/achituv
