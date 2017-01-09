@@ -2,30 +2,30 @@
 layout: post
 title:  "ESP32 - first steps"
 description: ESP32 - basic setup, programming and benchmarks
-draft: true
-date:   2016-11-28 23:59:59 -0500
+draft: false
+date:   2017-01-08 20:00:00 -0500
 --- 
 
-This post describes my first steps with ESP32. It was originally written as preparation for TA'ing communications week in MIT's [fabclass][fabclass]. It covers basic setup, firmware deployment and a hint of benchmarking. 
+This post describes my first steps with ESP32. It was originally written as preparation for TA'ing communications week in MIT's [fabclass][fabclass]. I cover basic setup, firmware deployment and a hint of benchmarking.
 
-*Warning: esp32 is brand spanking new and should be considered a moving target*.
+*Warning: ESP32 is brand spanking new and should be considered a moving target*.
 
 **Contents:** 
 
- * [Intro](#intro)
- * [Setup](#setup)
-    * [Equipment Used](#equipment-used)
-    * [Basic Connectivity](#basic-connectivity)
-    * [Sanity Check](#sanity-check)
- * [Programming](#programming)
-    * [FreeRTOS](#freertos)
-    * [ESP - IDF](#esp---idf)
-    * [ESP32 ARDUINO CORE](#esp32-arduino-core)
- * [Ring Oscillator benchmark](#ring-oscillator-benchmark)
- * [More Resources](#more-resources)
+- [What is the ESP32?](#what-is-the-esp32)
+- [Hardware Setup](#hardware-setup)
+  * [Equipment Used](#equipment-used)
+  * [Basic Connectivity](#basic-connectivity)
+  * [Sanity Check](#sanity-check)
+- [Programming](#programming)
+  * [FreeRTOS](#freertos)
+  * [ESP - IDF](#esp---idf)
+  * [ESP32 ARDUINO CORE](#esp32-arduino-core)
+- [Ring Oscillator benchmark](#ring-oscillator-benchmark)
+- [More Resources](#more-resources)
 
 
-### Intro
+### What is the ESP32?
 
 ESP32, successor to the beloved ESP8266, is system on a chip (SoC) that can do (almost) anything:
 
@@ -37,14 +37,15 @@ ESP32, successor to the beloved ESP8266, is system on a chip (SoC) that can do (
 
 ![esp32-arch](/assets/esp32/esp32-arch.jpg)
 
-Espressif, the manufacturer, have been kind enough to send some units of their new ESP32 modules for evaluation. (huge thanks to John Lee [@EspressifSystem][espressif-twitter]) This posts explores basic connectivity, different ways to program it and basic benchmarking.
+Espressif, the manufacturer, have been kind enough to send some units of their new ESP32 modules for evaluation. (huge thanks to John Lee [@EspressifSystem][espressif-twitter]) I will demonstrate basic connectivity, different ways to program it, and basic benchmarking.
 
-### Setup
+### Hardware Setup
 
 #### Equipment Used
 
 - [**ESP32 WROOM32**][todo] module. This is Espressif's own ESP32 module. It's safe to assume that we'll see ESP32 used in modules from 3rd party manufacturers in the near future (AI was the lead module manufacturer for the ESP8266).
-- **ESP32 Breakout** board. Espressif provided us with simple breakout boards that expose all I/O pins and physical buttons for RESET and BOOT MODE. There are other boards out there and also designs so you can [mill your own][esp32-eagle].
+- **ESP32 Breakout** board. Espressif provided us with [simple breakout boards](/assets/esp32/esp32-breakout.png) that expose all I/O pins and physical buttons for RESET and BOOT MODE.
+There are other boards available to order as well as designs to [mill your own][esp32-eagle].
 - **FTDI Cable**
 - **3.3V Power Supply** (up to 500mA). DO NOT USE THE FTDI POWER - IT CAN'T PROVIDE ENOUGH CURRENT. (TRUST ME - I'VE TRIED)
 
@@ -94,14 +95,15 @@ station: 80:e6:50:27:b6:62 join, AID = 1, g, 20
 {% endhighlight %}
 
 I couldn't find any other interesting things in the provided firmware.
-In case you were wondering, like me, whether ESP8266's [AT command-set][at-commandset] works in this prompt, the answer is no. It's not very clear what commands do work here.
+In case you were wondering, like me, whether ESP8266's [AT command-set][at-commandset] works in this prompt, the answer is no. It's not very clear what commands do work here. (If you know of some, leave them in the comments below)
 
 ### Programming
-There are currently two methods to program the ESP32: the ESP-IDF and the ESP32 arduino Core. 
 
 #### FreeRTOS
 
-Before programming this chip it's crucial to understand that, unlike other embedded systems, the ESP32 comes with a light operating system - FreeRTOS. The following methods to program this chip don't replace the FreeRTOS firmware, but rather deploy applications for it to run. I imagine that in the near future we'll see other operating systems or no-os approaches for reprogramming these chips.  
+Before programming this chip it's crucial to understand that, unlike other embedded systems, the ESP32 comes with a light operating system - FreeRTOS. The following methods to program this chip don't replace the FreeRTOS firmware, but rather deploy applications for it to run. I imagine that in the near future we'll see other operating systems or no-os approaches for reprogramming these chips.
+
+There are currently two methods to program the ESP32: the ESP-IDF and the ESP32 arduino Core.
 
 #### ESP - IDF
 
@@ -131,13 +133,18 @@ Here, I measure both programming methods mentioned earlier:
 
 **Conclusion:** the Arduino program is about 65% slower than the lower level FreeRTOS program. However, usually in these type of tests, the portability of arduino code comes with a much bigger performance drop. Good job, Espressif!
 
-*Note: These tests only occupy one core. The second core is free to perform other tasks, such as neworking. [Example](https://github.com/tomerweller/esp32-rtos-webclient/tree/with-ring-oscillator).*
+*Note: These tests only occupy one core. The second core is free to perform other tasks, such as networking. [Example](https://github.com/tomerweller/esp32-rtos-webclient/tree/with-ring-oscillator).*
 
 ### More Resources
 - [ESP32 Data Sheet][esp32-datasheet]
 - [ESP-WROOM32 Data Sheet][esp32-wroom32-datasheet]
 - [ESP32 official forum][esp32-forums]
 - [ESP32 Getting started (hackaday)][esp32-getting-started-hackaday]
+
+### Thanks:
+- [John Lee][espressif-twitter] and espressif for providing us with the boards.
+- [Jonathan Bobrow][jb] for feedback on this post.
+
 
 [todo]:http://www.todo.com
 [esp32-overview]:https://espressif.com/en/products/hardware/esp32/overview
@@ -154,3 +161,4 @@ Here, I measure both programming methods mentioned earlier:
 [FreeRTOS]:http://www.freertos.org/
 [core-ro]:https://gist.github.com/tomerweller/e50403bb18dcb6932d54e8f11edf0734
 [rtos-ro]:https://gist.github.com/tomerweller/7f9f202858cb064c84722c72f6c20aee
+[jb]:http://jonathanbobrow.com/
