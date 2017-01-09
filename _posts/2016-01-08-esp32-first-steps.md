@@ -8,7 +8,7 @@ date:   2017-01-08 20:00:00 -0500
 
 This post describes my first steps with ESP32. It was originally written as preparation for TA'ing communications week in MIT's [fabclass][fabclass]. I cover basic setup, firmware deployment and a hint of benchmarking.
 
-*Warning: ESP32 is brand spanking new and should be considered a moving target*.
+*Warning: This post was written in November 2016. ESP32 is brand spanking new and should be considered a moving target*.
 
 **Contents:** 
 
