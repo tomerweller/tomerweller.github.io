@@ -3,8 +3,9 @@ layout: post
 title:  "ESP32 - first steps"
 description: ESP32 - basic setup, programming and benchmarks
 draft: false
+image: /assets/esp32/esp32-ro-freertos.jpg
 date:   2017-01-08 20:00:00 -0500
---- 
+---
 
 This post describes my first steps with ESP32. It was originally written as preparation for TA'ing communications week in MIT's [fabclass][fabclass]. I cover basic setup, firmware deployment and a hint of benchmarking.
 
