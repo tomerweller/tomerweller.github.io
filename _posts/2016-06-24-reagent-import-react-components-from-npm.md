@@ -171,12 +171,12 @@ In `project.clj` let's change our dependencies to be:
 
 Now, to fool Reagant into thinking that these packages already exist - we're going to create empty namespaces.
 
-`src/cljscljs/react.cljs`:
+`src/cljsjs/react.cljs`:
 {% highlight clojure %}
 (ns cljsjs.react)
 {% endhighlight %}
 
-`src/cljscljs/react/dom.cljs`:
+`src/cljsjs/react/dom.cljs`:
 {% highlight clojure %}
 (ns cljsjs.react.dom)
 {% endhighlight %}
