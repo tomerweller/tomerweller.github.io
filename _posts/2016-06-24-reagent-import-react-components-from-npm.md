@@ -8,6 +8,8 @@ date:   2016-06-24 23:59:59 -0500
 
 This post describes, step by step, how to setup a workflow for importing [React][React] components from [NPM][npm], using [Webpack][webpack], and incorporate them in your [Reagent][reagent] views.
 
+**UPDATE (June 17th, 2017 ): A year later, this post and method are very much still relevant. I've made a small update to take advantage of the `:foreign-libs` option, as suggested in the comments (Thanks Andreas and Alex!), which reduces the plumbing necessary.** 
+
 ### Motivation
 Any Javascript developer using a modern build tool can easily test and incorporate React components from 3rd party developers in their app. It's usually just a matter of declaring dependencies, building and importing.
 
@@ -50,17 +52,17 @@ Let's create a minimal `package.json` file. We can either do it interactively wi
 {% highlight json %}
 {
   "name": "zefstyle",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "tomer.weller@gmail.com",
   "scripts": {
     "watch": "webpack -d --watch",
     "build": "webpack -p"
   },
   "dependencies": {
-    "react-player": "0.7.3",
-    "react": "15.1.0",
-    "react-dom": "15.1.0",
-    "webpack": "1.13.1"
+    "react": "15.5.4",
+    "react-dom": "15.5.4",
+    "webpack": "1.13.1",
+    "react-player": "0.18.0"
   }
 }
 {% endhighlight %}
@@ -131,55 +133,26 @@ $ npm run watch
 {% endhighlight %}
 
 For a continuous build that watches for changes in our code. Given that the Javascript code should remain pretty static the watch might be redundant.
- 
-To finalize our webpack setup we need to add the `bundle.js` in a script tag to the main html page.
-
-`public/index.html` should look something like this
-
-{% highlight html %}
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1" name="viewport">
-    <link href="css/site.css" rel="stylesheet" type="text/css">
-  </head>
-  <body>
-    <div id="app">
-      <h3>ClojureScript has not been compiled!</h3>
-      <p>please run <b>lein figwheel</b> in order to start the compiler</p>
-    </div>
-    <script src="js/bundle.js" type="text/javascript"></script>
-    <script src="js/app.js" type="text/javascript"></script>
-  </body>
-</html>
-
-{% endhighlight %}
 
 
-
-### Excluding cljsjs.react
+### Leiningen project setup
 Like I mentioned before, we're counting on webpack to bring React into the picture. That means that we need to get rid of the `cljsjs.react` & `cljsjs.react.dom` packages that reagant depends on. 
 
 In `project.clj` let's change our dependencies to be:
 
 {% highlight clojure %}
 :dependencies [[org.clojure/clojure "1.8.0" :scope "provided"]
-               [org.clojure/clojurescript "1.9.36" :scope "provided"]
-               [reagent "0.6.0-rc" :exclusions [cljsjs/react cljsjs/react-dom]]]
+             [org.clojure/clojurescript "1.9.562" :scope "provided"]
+             [reagent "0.6.2" :exclusions [cljsjs/react cljsjs/react-dom]]]
 {% endhighlight %}
 
-Now, to fool Reagant into thinking that these packages already exist - we're going to create empty namespaces.
-
-`src/cljsjs/react.cljs`:
+And add an external dependency to our webpack generated `bundle.js` through `:foreign-libs`. We need to add the following to all build profiles:
 {% highlight clojure %}
-(ns cljsjs.react)
+:foreign-libs [{:file "public/js/bundle.js"
+                :provides ["cljsjs.react" "cljsjs.react.dom" "webpack.bundle"]}]
 {% endhighlight %}
 
-`src/cljsjs/react/dom.cljs`:
-{% highlight clojure %}
-(ns cljsjs.react.dom)
-{% endhighlight %}
+Notice how our foreign lib satisfies all react dependencies and also add a convenience namespace, `webpack.bundle`, for importing the external bundle.
 
 At this point it's a good idea to cleanup and re-run figwheel.
 
@@ -191,8 +164,16 @@ $ lein clean && lein figwheel
 
 Now that we have everything in place we can add the react-player to our main Reagant view.
 
-in `src/zefstyle/core.cljs` let's change our `home-page` function to be:
+in `src/zefstyle/core.cljs` let's add the `webpack.bundle` dependency to our namespace:
 
+{% highlight bash %}
+
+(ns zefstyle.core
+  (:require [reagent.core :as reagent :refer [atom]]
+            [webpack.bundle]))
+{% endhighlight %}
+
+and change our `home-page` function to be:
 {% highlight clojure %}
 (defn home-page []
   (let [react-player (aget js/window "deps" "react-player")]
@@ -206,13 +187,13 @@ Notice the special `:>` syntax for using pure React components.
 opening `public/index.html` should yield something like this: 
 ![yolandi](/assets/zefstyle.png)
 	
-**Voila!** We brought the pure JS react-player component into our Reagent view. 
+**Voila!** We brought the pure JS `react-player` component into our Reagent view. 
 
 To bring in new components we just need to declare them in `package.json`, `require()` them in main.js and rebuild.
 
 ### Caveats:
 
-1. JS dependencies are not processed by the Closure compiler so they do not get optimized at all. 
+1. JS dependencies are not processed by the Closure compiler so they do not get advanced optimization, only whatever webpack is setup to do. 
 2. Setting up this process is not trivial. However, it only needs to be done once and from then on it's a smooth sail. Also, automating the process or part of it sounds like a feasible task as part of a lein plugin. I'll look into that when some time frees up. 
 
 Let me know if this was helpful, requires some fixups or if it's complete rubbish.
