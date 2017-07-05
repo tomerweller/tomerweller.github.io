@@ -14,7 +14,7 @@ Hi, I'm **Tomer Weller** and I make things. Usually, with computers and code. I 
 
 
 <H3>Links</H3>
-
+- [Master's Thesis : "This is how : story centric distributed brainstorming and collaboration"](https://dspace.mit.edu/handle/1721.1/107549) (Aug 2016)
 - [ESP32 - Toolchain setup on OSX](http://www.pubpub.org/pub/esp32-osx-setup) (Jan 2016)
 - ["How to Make Something that Makes (almost) Anything](http://fab.cba.mit.edu/classes/865.15/people/tomer.weller/index.html) (Spring 2015)
 - ["How to Make (almost) Anything"](http://fab.cba.mit.edu/classes/863.14/people/tomer_weller/index.html) (Fall 2014)
