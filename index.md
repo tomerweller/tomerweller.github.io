@@ -3,7 +3,7 @@ layout: default
 title:  "Tomer Weller / A Blob"
 ---
 
-Hi, I'm **Tomer Weller** and I make things. Usually, with computers and code. I recently graduated from the MIT Media Lab where, amongst other things, I worked on fostering collaboration between makers and non-for-profit organizations. I'm interested in how people do the the things that they do. And LISP.
+Hi, I'm **Tomer Weller** and I make things. Usually, with computers and code. I recently graduated from the MIT Media Lab where, amongst other things, I worked on fostering collaboration between makers and non-for-profit organizations. I'm interested in how people do the things that they do. And LISP.
 
 
 <H3>Posts</H3>
