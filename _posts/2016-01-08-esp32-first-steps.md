@@ -132,7 +132,7 @@ Here, I measure both programming methods mentioned earlier:
 | ![rtos-ro](/assets/esp32/esp32-ro-freertos.jpg)1.63MHz|![core-ro](/assets/esp32/esp32-ro-core.jpg)1.05MHz |
 
 
-**Conclusion:** the Arduino program is about 65% slower than the lower level FreeRTOS program. However, usually in these type of tests, the portability of arduino code comes with a much bigger performance drop. Good job, Espressif!
+**Conclusion:** the Arduino program is about 35% slower than the lower level FreeRTOS program. However, usually in these type of tests, the portability of arduino code comes with a much bigger performance drop. Good job, Espressif!
 
 *Note: These tests only occupy one core. The second core is free to perform other tasks, such as networking. [Example](https://github.com/tomerweller/esp32-rtos-webclient/tree/with-ring-oscillator).*
 
