@@ -10,10 +10,10 @@ title: Tomer Weller / Blob
 email: tomer.weller@gmail.com
 description: "an indeterminate mass or shape"
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://blob.tomerweller.com" # the base hostname & protocol for your site
+url: "https://tomerweller.com" # the base hostname & protocol for your site
 twitter_username: tomerweller
 github_username:  tomerweller
-permalink: /:title
+permalink: /blob/:title
 path: /
 # Build settings
 markdown: kramdown
